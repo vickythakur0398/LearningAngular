@@ -12,11 +12,13 @@
 <P>{{ allowNewServer }}</P>
 <p>{{ serverCreationStatus }}</p>
 <app-server> </app-server>
-<app-server></app-server>
-<app-warning></app-warning>
-<app-success></app-success>
+<p *ngIf="nameCreated">Server is created {{ serverName }}</p>
+<app-server *ngFor="let i of servers"></app-server>
+<!-- <app-warning></app-warning>
+<app-success></app-success> -->
 
-<!-- //Assiginmnet -->
+<!-- 
+ //Assiginmnet -
 <input class="form-control" type="text" [(ngModel)]="userName" />
 <p>{{ userName }}</p>
 <button
@@ -25,4 +27,16 @@
   (click)="onEmpty()"
 >
   Add
-</button>
+</button> -->
+
+<!-- assignment last of first module -->
+<button class="form-control" (click)="onDisplay()">Display Details</button>
+<p *ngIf="dis">this will be shown</p>
+<!-- <p *ngFor="let i of cLog">{{ cLog }}</p> -->
+<div
+  *ngFor="let i of cLog"
+  [ngStyle]="{ backgroundColor: i >= 5 ? 'blue' : 'white' }"
+  [ngClass]="{ log: i >= 5 }"
+>
+  {{ i }}
+</div>
